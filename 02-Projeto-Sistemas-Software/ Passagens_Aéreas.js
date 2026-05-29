@@ -60,17 +60,22 @@ class Sistema {
         }
     }
     excluirCompanhia(id){
-        if(this.companhias[id]===0){
-            console.log('Não há nenhuma companhia cadastrada')
-        } else {
-            this.companhias[id]
-            console.log('companhia excluída')
+        if(this.companhias[id]){
+                this.companhia.splice(id, 1)
+                console.log('companhia excluída')
+           
+            } else {
+            console.log('Companhia não cadastrada')
         }
     }
 
     // TRECHOS
     cadastrarTrecho(idCompanhia, origem, destino, valor){
-
+       const trecho = new Trecho(idCompanhia, origem, destino, valor)
+       this.idCompanhias = 
+       this.origem
+       this.destino 
+       this.valor
     }
     listarTrechos(){
 
