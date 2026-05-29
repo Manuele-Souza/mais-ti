@@ -73,11 +73,21 @@ class Sistema {
     cadastrarTrecho(idCompanhia, origem, destino, valor){
        const trecho = new Trecho(idCompanhia, origem, destino, valor)
        this.idCompanhias = 
-       this.origem
-       this.destino 
-       this.valor
+       this.origem = origemTrecho
+       this.destino = destinoTrecho 
+       this.valor = valorTrecho
+       console.log(this.origem, this.destino, this.valor, )
     }
     listarTrechos(){
+         if(this.trechos.length === 0){
+            console.log('Não há nenhum trecho cadastrada')
+        } else {
+            for(let indice = 0; indice < this.trechos.length; indice++){
+                console.log(`[${indice}] ${this.trechos[indice]}`)
+            }
+        }
+    
+        }
 
     }
     listarTrechosPorCompanhia(){ 
