@@ -102,14 +102,16 @@ class Sistema {
         return
     }
   let trechosEncontrados = 0; 
+/* let escolha = prompt("Escolha uma opção")
         for (let indice = 0; indice < this.trechos.length; indice++) {
-            if (this.trechos[indice].companhia === idCompanhia) {
+            if (escolha === 2 & this.trechos[indice].companhia === idCompanhia) {
                 let trecho = this.trechos[indice];
                 console.log(`[${indice}] Origem: ${trecho.origem} | Destino: ${trecho.destino} | Valor: R$ ${trecho.valor.toFixed(2)}`);
                 trechosEncontrados = trechosEncontrados + 1; 
             }
         }
     }
+*/
     editarTrecho(id, origem, destino, valor) {
         if(this.trechos[id]){
             this.trechos[id].origem = origem
