@@ -1,13 +1,5 @@
-/*
-O seu código precisa simular um sistema de gerenciamento para companhias aéreas, onde será possível:
-
-    Cadastrar, visualizar, editar e excluir companhias aéreas;
-    Cadastrar, visualizar, editar e excluir trechos de viagem;
-    Ao cadastrar um trecho, primeiro selecionar a companhia responsável, depois informar a cidade de origem, o destino e o valor do trecho;
-    Na visualização, escolher entre listar todos os trechos ou listar por companhia.
-*/
-
 const prompt = require('prompt-sync')();
+const fs = require('fs');
 
 class Companhia {
     constructor(nome) {
@@ -29,6 +21,22 @@ class Sistema {
     constructor() {
         this.companhias = [];
         this.trechos = [];
+}
+
+    carregar() {
+        if (!fs.existsSync('passagens.json')) {
+            return { companhias: [], trechos: [] };
+        } else {
+        const conteudo = fs.readFileSync('passagens.json', 'utf-8');
+        const dados = JSON.parse(conteudo)
+        this.companhias = dados.companhias
+        this.trechos = dados.trechos
+        }
+    }
+    salvar(){
+        dados = {companhias : this.companhias, trechos : this.trechos}
+        objeto = JSON.stringify(dados, null, 2);
+        fs.writeFileSync("passagens.json", objeto)
     }
 
     pausar() {
@@ -38,70 +46,109 @@ class Sistema {
     }
 
     // COMPANHIAS
-    cadastrarCompanhia(nome){
-        const nomeCompanhia = new Companhia(nome)
-        this.companhias.push(nomeCompanhia)
-        console.log(this.companhias)
+    cadastrarCompanhia(nome) {
+        const novaCompanhia = new Companhia(nome);
+        this.companhias.push(novaCompanhia);
+        console.log("\nCompanhia cadastrada com sucesso!");
+
+
     }
-    listarCompanhias(){
-        if(this.companhias.length === 0){
-            console.log('Não há nenhuma companhia cadastrada')
+
+    listarCompanhias() {
+        console.log("\n======= ✈️  COMPANHIAS =======");
+        if (this.companhias.length === 0) {
+            console.log("\nNenhuma companhia cadastrada.");
         } else {
-            for(let indice = 0; indice < this.companhias.length; indice++){
-                console.log(`[${indice}] ${this.companhias[indice].nome}`)
-            }
-        }
-    
-        }
-    editarCompanhia(id, novoNome){
-        if(this.companhias[id]){
-            this.companhias[id].nome = novoNome
-            console.log('Novo nome cadastrado com sucesso!')
+            this.companhias.forEach((companhia, index) => {
+                console.log(`[${index}] ${companhia.nome}`);
+            });
         }
     }
-    excluirCompanhia(id){
-        if(this.companhias[id]){
-                this.companhia.splice(id, 1)
-                console.log('companhia excluída')
-           
-            } else {
-            console.log('Companhia não cadastrada')
+
+    editarCompanhia(id, novoNome) {
+        if (this.companhias[id]) {
+            this.companhias[id].nome = novoNome;
+            console.log("\nCompanhia atualizada com sucesso!");
+        } else {
+            console.log("\nErro: Companhia não encontrada.");
+        }
+    }
+
+    excluirCompanhia(id) {
+        if (this.companhias[id]) {
+            this.companhias.splice(id, 1);
+            console.log("\nCompanhia removida com sucesso!");
+        } else {
+            console.log("\nErro: Companhia não encontrada.");
         }
     }
 
     // TRECHOS
-    cadastrarTrecho(idCompanhia, origem, destino, valor){
-       const trecho = new Trecho(idCompanhia, origem, destino, valor)
-       this.idCompanhias = 
-       this.origem = origemTrecho
-       this.destino = destinoTrecho 
-       this.valor = valorTrecho
-       console.log(this.origem, this.destino, this.valor, )
-    }
-    listarTrechos(){
-         if(this.trechos.length === 0){
-            console.log('Não há nenhum trecho cadastrada')
+    cadastrarTrecho(idCompanhia, origem, destino, valor) {
+        if (this.companhias[idCompanhia]) {
+            const novoTrecho = new Trecho(this.companhias[idCompanhia].nome, origem, destino, valor);
+            this.trechos.push(novoTrecho);
+            console.log("\nTrecho cadastrado com sucesso!");
         } else {
-            for(let indice = 0; indice < this.trechos.length; indice++){
-                console.log(`[${indice}] ${this.trechos[indice]}`)
-            }
+            console.log("\nErro: Companhia não encontrada.");
         }
-    
+    }
+
+    listarTrechos() {
+        console.log("\n======= 🗺️  TRECHOS =======");
+        if (this.trechos.length === 0) {
+            console.log("\nNenhum trecho cadastrado.");
+        } else {
+            this.trechos.forEach((trecho, index) => {
+                console.log(`\n[${index}] ${trecho.origem} → ${trecho.destino}`);
+                console.log(`   ✈️  Companhia: ${trecho.companhia}`);
+                console.log(`   💰 Valor: R$ ${trecho.valor.toFixed(2)}`);
+                console.log("-------------------------------------------");
+            });
         }
-
     }
-    listarTrechosPorCompanhia(){ 
 
+    listarTrechosPorCompanhia() {
+        console.log("\n======= ✈️  TRECHOS POR COMPANHIA =======");
+        if (this.companhias.length === 0) {
+            console.log("\nNenhuma companhia cadastrada.");
+        } else {
+            this.companhias.forEach((companhia) => {
+                console.log(`\n📌 ${companhia.nome.toUpperCase()}`);
+                const trechosDaCompanhia = this.trechos.filter(trecho => trecho.companhia === companhia.nome);
+                if (trechosDaCompanhia.length === 0) {
+                    console.log("   Nenhum trecho cadastrado para essa companhia.");
+                } else {
+                    trechosDaCompanhia.forEach((trecho, index) => {
+                        console.log(`   [${index}] ${trecho.origem} → ${trecho.destino} | R$ ${trecho.valor.toFixed(2)}`);
+                    });
+                }
+                console.log("-------------------------------------------");
+            });
+        }
     }
-    editarTrecho(id, origem, destino, valor){
 
+    editarTrecho(id, origem, destino, valor) {
+        if (this.trechos[id]) {
+            this.trechos[id].origem = origem;
+            this.trechos[id].destino = destino;
+            this.trechos[id].valor = valor;
+            console.log("\nTrecho atualizado com sucesso!");
+        } else {
+            console.log("\nErro: Trecho não encontrado.");
+        }
     }
-    excluirTrecho(id) { 
 
+    excluirTrecho(id) {
+        if (this.trechos[id]) {
+            this.trechos.splice(id, 1);
+            console.log("\nTrecho removido com sucesso!");
+        } else {
+            console.log("\nErro: Trecho não encontrado.");
+        }
     }
-}
+ }
 
-// -------------------------------------------
 
 const sistema = new Sistema();
 let opcao = -1;
