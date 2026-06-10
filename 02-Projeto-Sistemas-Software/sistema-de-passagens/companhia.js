@@ -12,6 +12,15 @@ function pausar() {
 function listarCompanhias() {
     // busca todas as companhias no banco e exibe no terminal
     // retorna o array de companhias
+
+const Companhias = db.prepare('SELECT * FROM Companhia').all();
+console.log(Companhias.length); // 4
+
+for (let i = 0; i < Companhias.length; i++) {
+    console.log(Companhias[i].titulo);
+    return companhias
+}
+
 }
 
 function validarOuCadastrarCompanhia(idInformado) {
@@ -19,7 +28,33 @@ function validarOuCadastrarCompanhia(idInformado) {
     // se nao existir, pergunta se o usuario quer cadastrar uma nova
     // se sim, pede nome e ano de fundacao e insere no banco
     // retorna o id valido ou null se o usuario optar por nao cadastrar
-}
+
+    const Companhia = db.prepare(`SELECT * FROM Companhia WHERE id = ?`).get(idInformado);
+    
+    if(Companhia){
+        console.log(idInformado)
+        return idInformado
+    } 
+
+    console.log('Nenhuma companhia cadastrada com esse ID')
+    const opcaoCadastro = prompt('Deseja cadastrar uma nova companhia? (s/n):')
+//toLocalLowerCase formata o texto para letras minusculas
+    if(opcaoCadastro.toLocaleLowerCase() !== 's') {
+        return null
+    }
+
+        const nome = prompt('Digite o nome da companhia:')
+        const anoFundacao = parseInt(prompt('Digite o ano de fundação:'))
+
+        const resultadoCompanhia = db.prepare (`INSERT INTO Companhia(nome, anoFundacao) VALUES (?, ?)`).run(nome, anoFundacao)
+
+        console.log('Companhia cadastrada com sucesso!')
+
+        return resultadoCompanhia.lastInsertRowid
+        
+    }
+
+
 
 // -------------------------------------------
 // FUNÇÕES DE TRECHOS
@@ -30,6 +65,7 @@ function cadastrarTrecho() {
     // valida ou cadastra a companhia
     // pede origem, destino, valor e numero de passagens
     // insere o trecho no banco
+    validarOuCadastrarCompanhia();
 }
 
 function listarTrechos() {
@@ -106,9 +142,14 @@ while (opcao !== 0) {
             console.log('3 - Editar');
             console.log('4 - Excluir');
             const opcaoTrecho = parseInt(prompt('Escolha: '));
+    
 
             switch (opcaoTrecho) {
-                case 1: cadastrarTrecho(); break;
+                case 1:
+                    const idInformado = parseInt(prompt('Informe o ID:'))
+                    
+                     cadastrarTrecho(); 
+                break;
                 case 2: listarTrechos(); break;
                 case 3: editarTrecho(); break;
                 case 4: excluirTrecho(); break;
