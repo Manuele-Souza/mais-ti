@@ -1,0 +1,105 @@
+		
+            body {
+                
+				/* Nova combinação de fontes modernas */
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				background-color: #608b96; /* Fundo cinza bem claro/azuloso */
+				margin: 0;
+				color: #333333;
+                text-align: center;
+            
+			}
+
+			/* Cabeçalho com nova cor (Azul Petróleo Escuro) */
+			header {
+				background-color: #2c3e50;
+				color: white;
+				text-align: center;
+				padding-top: 15px; /* Mais espaçamento interno */
+               padding-bottom: 10px;
+			}
+      header h1 {
+        font-family: 'Times New Roman', Times, serif
+      }
+      nav {
+        border-top: 1px solid #eef2f3;
+      }
+      nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+      }
+
+      nav a{
+        color: #e67e22;
+        padding: 20px;
+        font-weight: bolder;
+        font-size: large;
+      }
+
+			/* Bloco principal centralizado com novas proporções */
+			main {
+				width: 550px; /* Largura um pouco menor que o anterior */
+				margin: 25px auto; /* Margem de 25px acima/abaixo e centralizado nas laterais */
+				background-color: white;
+				padding: 30px;
+				border-radius: 15px; /* Cantos ainda mais arredondados e modernos */
+			}
+
+			/* Espaçamento entre as seções */
+			section {
+				margin-bottom: 35px;
+        
+               
+			}
+
+			/* Estilização da imagem */
+			img {
+				width: 200px;
+                height: 100px ;
+				border-radius: 20px; /* Acompanha o arredondamento do main */
+			}
+
+			/* Rodapé combinando com o cabeçalho */
+			footer {
+				background-color: #2c3e50;
+				color: white;
+				text-align: center;
+				padding: 20px;
+			}
+
+			/* Estilização dos Links - Nova cor (Laranja/Abóbora) */
+			a {
+				color: #e67e22;
+				font-weight: bold;
+				text-decoration: none; /* Remove o sublinhado padrão */
+			}
+
+			/* 4. Pseudo-classe Hover (Efeito ao passar o mouse) */
+			a:hover {
+				text-decoration: underline; /* O sublinhado aparece apenas no foco */
+				color: #d35400; /* Muda para um tom de laranja mais escuro */
+
+			}
+
+
+
+
+#contato{
+	width: 550px; /* Largura um pouco menor que o anterior */
+	margin: 500px auto; /* Margem de 25px acima/abaixo e centralizado nas laterais */
+	background-color: #D1B399 ;
+	padding: 100px;
+	border-radius: 15px; /* Cantos ainda mais arredondados e modernos */
+}
+
+#rodape{
+
+	width: 550px; /* Largura um pouco menor que o anterior */
+	margin: 500px auto; /* Margem de 25px acima/abaixo e centralizado nas laterais */
+	background-color: #D1B399 ;
+	padding: 100px;
+	border-radius: 15px; /* Cantos ainda mais arredondados e modernos */
+
+}
