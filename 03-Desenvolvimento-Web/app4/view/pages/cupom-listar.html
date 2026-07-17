@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Cupons</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/public/css/app.css">
+    <script src="/public/js/funcoes.js"></script>
+</head>
+<body class="admin-panel-theme">
+    <main class="page-wrap">
+        <header class="hero">
+            <h1>Cupons cadastrados</h1>
+            <p>Lista administrativa de cupons com acoes de manutencao.</p>
+            <a class="hero-corner-link" href="/home">Logout</a>
+        </header>
+
+        <nav class="admin-top-menu" aria-label="Menu superior da listagem">
+            <a href="/admin/painel"><i class="bi bi-arrow-left-circle"></i>Voltar ao menu</a>
+            <a href="/cupons/cadastrar"><i class="bi bi-plus-circle"></i>Adicionar cupom</a>
+        </nav>
+
+        <section class="card-panel">
+            <div class="entity-list" id="lista-cupons"></div>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('lista-cupons');
+
+            try {
+                await carregarCupons(container);
+            } catch (err) {
+                alert(`Erro ao carregar listagem: ${err.message}`);
+            }
+        });
+    </script>
+</body>
+</html>
