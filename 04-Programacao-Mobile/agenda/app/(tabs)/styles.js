@@ -1,0 +1,258 @@
+import { StyleSheet } from 'react-native';
+
+export const styles = StyleSheet.create({
+screen: {
+flex: 1,
+backgroundColor: '#f3f4f6',
+},
+screenContent: {
+alignItems: 'center',
+paddingTop: 50,
+paddingBottom: 28,
+paddingHorizontal: 20,
+},
+header: {
+alignItems: 'center',
+marginBottom: 20,
+},
+title: {
+color: '#172554',
+fontSize: 30,
+fontWeight: '700',
+textAlign: 'center',
+},
+subtitle: {
+color: '#64748b',
+fontSize: 15,
+marginTop: 5,
+textAlign: 'center',
+},
+scoreboard: {
+width: '100%',
+maxWidth: 420,
+flexDirection: 'row',
+justifyContent: 'space-between',
+marginBottom: 22,
+},
+scoreItem: {
+width: '31%',
+alignItems: 'center',
+backgroundColor: '#ffffff',
+borderColor: '#dbeafe',
+borderRadius: 14,
+borderWidth: 1,
+paddingHorizontal: 5,
+paddingVertical: 12,
+},
+scoreLabel: {
+color: '#64748b',
+fontSize: 13,
+},
+scoreValue: {
+color: '#1e3a8a',
+fontSize: 20,
+fontWeight: '700',
+marginTop: 3,
+},
+scoreValueSmall: {
+color: '#1e3a8a',
+fontSize: 16,
+fontWeight: '700',
+marginTop: 3,
+},
+list: {
+width: '100%',
+maxWidth: 420,
+gap: 10,
+},
+emptyText: {
+color: '#64748b',
+fontSize: 14,
+textAlign: 'center',
+paddingVertical: 20,
+},
+card: {
+flexDirection: 'row',
+alignItems: 'center',
+backgroundColor: '#ffffff',
+borderRadius: 14,
+borderLeftWidth: 5,
+paddingVertical: 12,
+paddingHorizontal: 14,
+},
+cardDone: {
+opacity: 0.55,
+},
+cardMain: {
+flex: 1,
+flexDirection: 'row',
+alignItems: 'center',
+},
+checkbox: {
+width: 24,
+height: 24,
+borderRadius: 12,
+borderWidth: 2,
+borderColor: '#94a3b8',
+alignItems: 'center',
+justifyContent: 'center',
+marginRight: 12,
+},
+checkboxChecked: {
+backgroundColor: '#22c55e',
+borderColor: '#22c55e',
+},
+checkboxMark: {
+color: '#ffffff',
+fontSize: 14,
+fontWeight: '700',
+},
+cardInfo: {
+flex: 1,
+},
+cardTitle: {
+color: '#172554',
+fontSize: 16,
+fontWeight: '700',
+},
+cardTitleDone: {
+textDecorationLine: 'line-through',
+},
+cardMeta: {
+color: '#64748b',
+fontSize: 13,
+marginTop: 2,
+},
+categoryTag: {
+alignSelf: 'flex-start',
+borderRadius: 8,
+marginTop: 6,
+paddingHorizontal: 8,
+paddingVertical: 2,
+},
+categoryTagText: {
+color: '#ffffff',
+fontSize: 11,
+fontWeight: '700',
+},
+removeButton: {
+marginLeft: 8,
+padding: 6,
+},
+removeButtonPressed: {
+opacity: 0.5,
+},
+removeButtonText: {
+color: '#94a3b8',
+fontSize: 16,
+fontWeight: '700',
+},
+addButton: {
+width: '100%',
+maxWidth: 420,
+alignItems: 'center',
+backgroundColor: '#1e3a8a',
+borderRadius: 14,
+marginTop: 20,
+paddingVertical: 14,
+},
+addButtonPressed: {
+opacity: 0.8,
+},
+addButtonText: {
+color: '#ffffff',
+fontSize: 16,
+fontWeight: '700',
+},
+modalOverlay: {
+flex: 1,
+alignItems: 'center',
+justifyContent: 'center',
+backgroundColor: 'rgba(15, 23, 42, 0.65)',
+padding: 24,
+},
+modalContent: {
+width: '100%',
+maxWidth: 380,
+backgroundColor: '#ffffff',
+borderRadius: 24,
+padding: 24,
+},
+modalTitle: {
+color: '#172554',
+fontSize: 22,
+fontWeight: '700',
+marginBottom: 16,
+textAlign: 'center',
+},
+fieldLabel: {
+color: '#334155',
+fontSize: 13,
+fontWeight: '700',
+marginBottom: 4,
+marginTop: 10,
+},
+input: {
+backgroundColor: '#f1f5f9',
+borderColor: '#cbd5e1',
+borderRadius: 10,
+borderWidth: 1,
+fontSize: 15,
+paddingHorizontal: 12,
+paddingVertical: 10,
+},
+categoryRow: {
+flexDirection: 'row',
+flexWrap: 'wrap',
+gap: 8,
+marginTop: 4,
+},
+categoryOption: {
+borderRadius: 10,
+borderWidth: 2,
+paddingHorizontal: 10,
+paddingVertical: 6,
+},
+categoryOptionText: {
+color: '#334155',
+fontSize: 13,
+fontWeight: '700',
+},
+categoryOptionTextActive: {
+color: '#ffffff',
+},
+modalActions: {
+flexDirection: 'row',
+gap: 10,
+marginTop: 20,
+},
+cancelButton: {
+flex: 1,
+alignItems: 'center',
+backgroundColor: '#e2e8f0',
+borderRadius: 12,
+paddingVertical: 12,
+},
+cancelButtonPressed: {
+opacity: 0.7,
+},
+cancelButtonText: {
+color: '#334155',
+fontSize: 15,
+fontWeight: '700',
+},
+saveButton: {
+flex: 1,
+alignItems: 'center',
+backgroundColor: '#1e3a8a',
+borderRadius: 12,
+paddingVertical: 12,
+},
+saveButtonPressed: {
+opacity: 0.8,
+},
+saveButtonText: {
+color: '#ffffff',
+fontSize: 15,
+fontWeight: '700',
+}})
