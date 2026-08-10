@@ -1,0 +1,95 @@
+Base:
+
+maiscafe/    (diretórios)
+├── app
+│   ├── (auth)
+│   ├── (cliente)
+│   ├── (garcom)
+│   ├── (gerente)
+|   ├── index.tsx
+|   └── _layout.tsx
+├── app-example
+│   ├── app
+│   ├── components
+│   ├── constants
+│   ├── hooks
+│   └── scripts
+├── assets
+│   └── images
+├── components
+├── contexts
+├── lib
+├── node_modules
+│   ├── @0no-co
+|   └──[...]
+|
+├── services
+└── supabase
+    ├── docs
+    └── sql
+
+
+
+maiscafe/   (tudo)
+├── AGENTS.md
+├── app
+│   ├── (auth)
+│   ├── (cliente)
+│   ├── (garcom)
+│   ├── (gerente)
+│   ├── index.tsx
+│   └── _layout.tsx
+├── app-example
+│   ├── app
+│   ├── components
+│   ├── constants
+│   ├── hooks
+│   └── scripts
+├── app.json
+├── assets
+│   └── images
+├── .claude
+│   └── settings.json
+├── CLAUDE.md
+├── components
+│   ├── AppButton.tsx
+│   ├── AppInput.tsx
+│   ├── RoleHeader.tsx
+│   └── Screen.tsx
+├── contexts
+│   ├── AuthContext.tsx
+│   └── CartContext.tsx
+├── eas.json
+├── .env
+├── eslint.config.js
+├── .expo
+│   ├── devices.json
+│   ├── README.md
+│   └── types
+├── expo-env.d.ts
+|
+├── .gitignore
+├── lib
+│   ├── supabase.ts
+│   ├── theme.ts
+│   └── types.ts
+├── node_modules
+│   ├── @0no-co
+|   └── [...]
+├── package.json
+├── package-lock.json
+├── README.md
+├── services
+│   ├── auth.ts
+│   ├── orders.ts
+│   ├── products.ts
+│   └── tables.ts
+├── supabase
+│   ├── docs
+│   └── sql
+├── tree.txt
+├── tsconfig.json
+└── .vscode
+    ├── extensions.json
+    └── settings.json
+
